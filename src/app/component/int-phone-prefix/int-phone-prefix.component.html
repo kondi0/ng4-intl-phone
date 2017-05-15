@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-1 flagInput">
+    <ng2-dropdown (onItemClicked)="updateSelectedCountry($event)"
+                  (onShow)="activateFilter(true)"
+                  (onHide)="activateFilter(false)">
+      <ng2-dropdown-button class="ng2-dropdown-button--image">
+        <span [class]="'flag flag-' + selectedCountry.countryCode" *ngIf="selectedCountry"></span>
+        <img src="../assets/flags/default.png" *ngIf="!selectedCountry">
+      </ng2-dropdown-button>
+      <ng2-dropdown-menu [appendToBody]="false" [width]="4">
+        <ng2-menu-item *ngFor="let country of countries | country: countryFilter" [value]="country.countryCode">
+          <span [class]="'flag flag-' + country.countryCode"></span>
+          <span class="country-name">{{ country.name }}</span>
+          <span class="dial-code">+ {{ country.dialCode}}</span>
+        </ng2-menu-item>
+      </ng2-dropdown-menu>
+    </ng2-dropdown>
+  </div>
+  <div class="col-md-2 phoneNumberInput">
+    <md-input-container>
+      <input mdInput
+             onlyNumber="true"
+             maxlength="15"
+             [placeholder]="selectedCountry?.dialCode"
+             [(ngModel)]="phoneInput"
+             (ngModelChange)="updatePhone()">
+    </md-input-container>
+  </div>
+</div>
