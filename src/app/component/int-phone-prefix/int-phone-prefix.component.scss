@@ -1,0 +1,17 @@
+.country-name {
+  margin-left: 6px;
+}
+
+.dial-code {
+  color: #999;
+}
+
+:host-context(ng2-dropdown-button--icon) .ng2-dropdown-button {
+  border: none;
+  min-width: 40px;
+  width: 40px;
+  transition: all 0.2s;
+  text-align: center;
+  height: 40px;
+  padding: 0.5em;
+}
