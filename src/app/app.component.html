@@ -1,6 +1,6 @@
 <form [formGroup]="formGroup" (ngSubmit)="log()">
-  <int-phone-prefix formControlName="phone"></int-phone-prefix>
+  <int-phone-prefix formControlName="phone" [locale]="'es'"></int-phone-prefix>
   <button type="submit">ok</button>
 </form>
 
-<int-phone-prefix [(ngModel)]="phone2"></int-phone-prefix>
+<int-phone-prefix [(ngModel)]="phone2" [locale]="'es'"></int-phone-prefix>
