@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "prueba"
+    "name": "ng4-intl-phone"
   },
   "apps": [
     {
@@ -21,8 +21,6 @@
       "styles": [
         "styles.scss",
         "assets/flags/flags.min.css",
-        "../node_modules/primeng/resources/primeng.min.css",
-        "../node_modules/primeng/resources/themes/bootstrap/theme.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
