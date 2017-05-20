@@ -24,6 +24,9 @@ To install this component to an external project, follow the procedure:
     export class MyTestAppModule {}
     ```
     
+    ##Testing in localhost
+    - `npm install ./relative/path/to/lib` after `npm run build` to test locally in another app
+    
     ## Usage
     
     Use one of the following two options.
