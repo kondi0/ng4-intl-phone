@@ -71,8 +71,8 @@ To install this component to an external project, follow the procedure:
     
     ```html
     <form [formGroup]="myForm" novalidate>
-        <int-phone-prefix name="myPhone" [locale]="'es'"
-                        formControlName="myDate"></int-phone-prefix>
+        <int-phone-prefix [locale]="'es'"
+                        formControlName="myPhone"></int-phone-prefix>
       <!-- other controls are here... -->
     </form>
     ```
