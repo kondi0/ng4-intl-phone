@@ -80,10 +80,12 @@ To install this component to an external project, follow the procedure:
     </form>
     ```
     ### locale attribute
-    
     An ISO 639-1 language code can be provided to set available language:
      es: Spanish,
      en: English
+     
+    ### defaultCountry attribute
+       An ISO 639-1 country code can be provided to set default country selected.
     
     ## License
     * License: MIT

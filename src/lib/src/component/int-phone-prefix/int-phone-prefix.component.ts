@@ -32,6 +32,9 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
   @Input()
   private locale: string;
 
+  @Input()
+  private defaultCountry: string;
+
   // ELEMENT REF
   private phoneComponent: ElementRef;
 
@@ -44,7 +47,7 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
   private selectedCountry: Country;
   private countryFilter: string;
   private showDropdown = false;
-  private phoneInput: string;
+  private phoneInput: string = '';
 
   private value = '';
 
@@ -76,24 +79,23 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
 
   writeValue(value: string) {
     this.value = value || '';
+    this.phoneInput = this.value;
 
     if (IntPhonePrefixComponent.startsWithPlus(this.value)) {
       this.findPrefix(this.value.split(PLUS)[1]);
+      if (this.selectedCountry) {
+        this.updatePhoneInput(this.selectedCountry.countryCode);
+      }
     }
 
-    this.phoneInput = value;
+    if (this.defaultCountry) {
+      this.updatePhoneInput(this.defaultCountry);
+    }
   }
 
   updateSelectedCountry(event: Event, countryCode: string) {
     event.preventDefault();
-    this.showDropdown = false;
-
-    let newInputValue: string = IntPhonePrefixComponent.startsWithPlus(this.phoneInput)
-      ? `${this.phoneInput.split(PLUS)[1].substr(this.selectedCountry.dialCode.length, this.phoneInput.length)}`
-      : this.phoneInput;
-
-    this.selectedCountry = this.countries.find((country: Country) => country.countryCode === countryCode);
-    this.phoneInput = `${PLUS}${this.selectedCountry.dialCode}${newInputValue}`;
+    this.updatePhoneInput(countryCode);
 
     this.updateValue();
   }
@@ -104,9 +106,9 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
   }
 
   hideDropdown(event: Event) {
-      if (!this.phoneComponent.nativeElement.contains(event.target)) {
-        this.showDropdown = false;
-      }
+    if (!this.phoneComponent.nativeElement.contains(event.target)) {
+      this.showDropdown = false;
+    }
   }
 
   updatePhone() {
@@ -131,6 +133,17 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
     this.countries = _.sortBy(this.countries, 'name');
   }
 
+  private updatePhoneInput(countryCode: string) {
+    this.showDropdown = false;
+
+    let newInputValue: string = IntPhonePrefixComponent.startsWithPlus(this.phoneInput)
+      ? `${this.phoneInput.split(PLUS)[1].substr(this.selectedCountry.dialCode.length, this.phoneInput.length)}`
+      : this.phoneInput;
+
+    this.selectedCountry = this.countries.find((country: Country) => country.countryCode === countryCode);
+    this.phoneInput = `${PLUS}${this.selectedCountry.dialCode} ${newInputValue.replace(/ /g, '')}`;
+  }
+
   private findPrefix(prefix: string) {
     let foundPrefixes: Country[] = this.countries.filter((country: Country) => prefix.startsWith(country.dialCode));
     this.selectedCountry = !_.isEmpty(foundPrefixes)
@@ -139,7 +152,7 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
   }
 
   private updateValue() {
-    this.value = this.phoneInput;
+    this.value = this.phoneInput.replace(/ /g, '');
     this.onModelChange(this.value);
     this.onTouch();
   }
