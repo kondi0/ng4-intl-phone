@@ -26,7 +26,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
             </div>
         </div>
     </form>
-    </div>
 </div>
   `,
 })
