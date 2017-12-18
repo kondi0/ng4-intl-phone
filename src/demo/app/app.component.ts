@@ -25,6 +25,12 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
                <button class="btn btn-primary">Submit</button>
             </div>
         </div>
+        <div class="row mt">
+            <div class="col-md-10">
+                <int-phone-prefix [locale]="'es'"
+                    formControlName="disabledPhone"></int-phone-prefix>
+            </div>
+        </div>
     </form>
 </div>
   `,
@@ -41,8 +47,11 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.myForm = this.formBuilder.group({
-            myPhone: ['', Validators.required]
+            myPhone: ['', Validators.required],
+            disabledPhone: ['']
         });
+
+        this.myForm.get('disabledPhone').disable();
     }
 
     logForm(value: any) {
