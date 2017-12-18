@@ -1,7 +1,7 @@
 <div class="input-group">
       <span class="input-group-addon flagInput">
          <div class="dropdown">
-            <button type="button" class="dropbtn btn" (click)="showDropDown()">
+            <button type="button" class="dropbtn btn" (click)="showDropDown()" [disabled]="disabled">
               <span [class]="'flag flag-' + selectedCountry.countryCode" *ngIf="selectedCountry"></span>
               <span class="defaultCountry" *ngIf="!selectedCountry"></span>
             </button>
@@ -20,6 +20,7 @@
   <input onlyNumber="true"
          class="form-control"
          maxlength="15"
+         [disabled]="disabled"
          [(ngModel)]="phoneInput"
          (ngModelChange)="updatePhone()">
 </div>

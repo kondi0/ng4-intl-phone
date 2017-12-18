@@ -1,4 +1,4 @@
-import {Component, ElementRef, forwardRef, HostListener, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, forwardRef, HostListener, Input, OnInit, Renderer2} from '@angular/core';
 import {Country} from '../../interface/country.interface';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {CountryCode} from '../../interface/country-code.interface';
@@ -47,7 +47,8 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
     selectedCountry: Country;
     countryFilter: string;
     showDropdown = false;
-    phoneInput: string = '';
+    phoneInput = '';
+    disabled = false;
 
     value = '';
 
@@ -67,6 +68,10 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
         this.countries = this.service.getCountries();
         this.locales = this.localeService.getLocales(this.locale);
         this.translateCountryNames();
+    }
+
+    setDisabledState(isDisabled: boolean): void {
+        this.disabled = isDisabled;
     }
 
     registerOnTouched(fn: Function) {
