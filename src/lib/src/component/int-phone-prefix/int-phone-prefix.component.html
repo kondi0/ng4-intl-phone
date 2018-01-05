@@ -20,6 +20,7 @@
   <input onlyNumber="true"
          class="form-control"
          maxlength="15"
+         onfocus="moveCursorToEnd(this)" 
          [disabled]="disabled"
          [(ngModel)]="phoneInput"
          (ngModelChange)="updatePhone()">
