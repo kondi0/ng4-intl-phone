@@ -17,9 +17,9 @@
             </div>
         </div>
       </span>
-  <input onlyNumber="true"
+  <input [onlyNumber]="onlyNumbers"
          class="form-control"
-         maxlength="15"
+         [maxlength]="maxLength"
          [disabled]="disabled"
          [(ngModel)]="phoneInput"
          (ngModelChange)="updatePhone()">
