@@ -79,13 +79,19 @@ To install this component to an external project, follow the procedure:
       <!-- other controls are here... -->
     </form>
     ```
-    ### locale attribute
+    ### @Input() locale
     An ISO 639-1 language code can be provided to set available language:
      es: Spanish,
      en: English
      
-    ### defaultCountry attribute
+    ### @Input() defaultCountry
        An ISO 639-1 country code can be provided to set default country selected.
+       
+   ### @Input() maxLength
+          maxLength (default: 15)
+          
+    ### @Input() onlyNumbers
+         Allows only numeric values (default: true)
     
     ## License
     * License: MIT

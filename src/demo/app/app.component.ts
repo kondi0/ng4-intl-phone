@@ -9,7 +9,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 <div class="card">
     <div class="row">
         <div class="col-md-6">
-            <int-phone-prefix [(ngModel)]="phoneValue"></int-phone-prefix>
+            <int-phone-prefix [(ngModel)]="phoneValue"
+                              [maxLength]="30"></int-phone-prefix>
         </div>
         <div class="col-md-6">
             <span>The phone number is: {{phoneValue}}</span>
