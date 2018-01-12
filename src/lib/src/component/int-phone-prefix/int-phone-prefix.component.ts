@@ -132,6 +132,17 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
         this.updateValue();
     }
 
+    moveCursorToEnd(el: any) {
+        if (typeof el.selectionStart == "number") {
+            el.selectionStart = el.selectionEnd = el.value.length;
+        } else if (typeof el.createTextRange != "undefined") {
+            el.focus();
+            var range = el.createTextRange();
+            range.collapse(false);
+            range.select();
+        }
+    }
+
     private translateCountryNames() {
         this.countries.forEach((country: Country) => {
             country.name = this.locales[country.countryCode];

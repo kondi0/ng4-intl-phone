@@ -19,6 +19,7 @@
       </span>
   <input [onlyNumber]="onlyNumbers"
          class="form-control"
+         onfocus="moveCursorToEnd(this)" 
          [maxlength]="maxLength"
          [disabled]="disabled"
          [(ngModel)]="phoneInput"
