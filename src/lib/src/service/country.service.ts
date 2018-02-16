@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Country} from "../interface/country.interface";
+import {Country} from '../interface/country.interface';
 
 @Injectable()
 export class CountryService {
@@ -1147,6 +1147,111 @@ export class CountryService {
         name: '',
         dialCode: '358',
         countryCode: 'ax'
+      },
+      {
+        name: '',
+        dialCode: '93',
+        countryCode: 'af'
+      },
+      {
+        name: '',
+        dialCode: '355',
+        countryCode: 'al'
+      },
+      {
+        name: '',
+        dialCode: '213',
+        countryCode: 'dz'
+      },
+      {
+        name: '',
+        dialCode: '1684',
+        countryCode: 'as'
+      },
+      {
+        name: '',
+        dialCode: '376',
+        countryCode: 'ad'
+      },
+      {
+        name: '',
+        dialCode: '244',
+        countryCode: 'ao'
+      },
+      {
+        name: '',
+        dialCode: '1264',
+        countryCode: 'ai'
+      },
+      {
+        name: '',
+        dialCode: '672',
+        countryCode: 'aq'
+      },
+      {
+        name: '',
+        dialCode: '1268',
+        countryCode: 'ag'
+      },
+      {
+        name: '',
+        dialCode: '54',
+        countryCode: 'ar'
+      },
+      {
+        name: '',
+        dialCode: '374',
+        countryCode: 'am'
+      },
+      {
+        name: '',
+        dialCode: '297',
+        countryCode: 'aw'
+      },
+      {
+        name: '',
+        dialCode: '61',
+        countryCode: 'au'
+      },
+      {
+        name: '',
+        dialCode: '43',
+        countryCode: 'at'
+      },
+      {
+        name: '',
+        dialCode: '55',
+        countryCode: 'bv'
+      },
+      {
+        name: '',
+        dialCode: '262',
+        countryCode: 'tf'
+      },
+      {
+        name: '',
+        dialCode: '6723',
+        countryCode: 'hm'
+      },
+      {
+        name: '',
+        dialCode: '599',
+        countryCode: 'an'
+      },
+      {
+        name: '',
+        dialCode: '64',
+        countryCode: 'pn'
+      },
+      {
+        name: '',
+        dialCode: '500',
+        countryCode: 'gs'
+      },
+      {
+        name: '',
+        dialCode: '699',
+        countryCode: 'um'
       }
     ];
   }
