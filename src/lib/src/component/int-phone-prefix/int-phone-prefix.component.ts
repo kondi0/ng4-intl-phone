@@ -40,6 +40,9 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
 
     @Input()
     onlyNumbers = true;
+    
+    @Input()
+    placeHolder: string;
 
     // ELEMENT REF
     phoneComponent: ElementRef;
