@@ -93,6 +93,10 @@ To install this component to an external project, follow the procedure:
     ### @Input() onlyNumbers
          Allows only numeric values (default: true)
     
+    ### @Input() firstlySelectedCountries
+         An ISO 639-1 country codes array can be provided to define which country flag should
+         be displayed in same dial code situation. Array is empty by default
+    
     ## License
     * License: MIT
     

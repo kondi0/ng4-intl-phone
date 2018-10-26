@@ -36,6 +36,9 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
     defaultCountry: string;
 
     @Input()
+    firstlySelectedCountries: string[] = [];
+
+    @Input()
     maxLength = 15;
 
     @Input()
@@ -49,6 +52,7 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
     onModelChange: Function;
 
     countries: Country[];
+    prioritizedCountries: Country[];
     locales: CountryCode;
     selectedCountry: Country;
     countryFilter: string;
@@ -72,6 +76,7 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
 
     ngOnInit(): void {
         this.countries = this.service.getCountries();
+        this.prioritizedCountries = this.getPrioritizedCountries();
         this.locales = this.localeService.getLocales(this.locale);
         this.translateCountryNames();
     }
@@ -156,9 +161,9 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
     }
 
     private findPrefix(prefix: string) {
-        let foundPrefixes: Country[] = this.countries.filter((country: Country) => prefix.startsWith(country.dialCode));
+        let foundPrefixes: Country[] = _.filter(this.countries, (country: Country) => prefix.startsWith(country.dialCode));
         this.selectedCountry = !_.isEmpty(foundPrefixes)
-            ? IntPhonePrefixComponent.reducePrefixes(foundPrefixes)
+            ? IntPhonePrefixComponent.reducePrefixes(foundPrefixes, this.prioritizedCountries)
             : null;
     }
 
@@ -168,16 +173,35 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
         this.onTouch();
     }
 
+    private getPrioritizedCountries() {
+        const selected: Country[] = [];
+        _.map(this.firstlySelectedCountries, (countryCode: string) => {
+            selected.push(_.find(this.countries, (country: Country) => {
+                return country.countryCode === countryCode;
+            }));
+        });
+        return _.compact(selected);
+    }
+
     private static startsWithPlus(text: string): boolean {
         return text.startsWith(PLUS);
     }
 
-    private static reducePrefixes(foundPrefixes: Country[]) {
+    private static reducePrefixes(foundPrefixes: Country[], prioritizedCountries: Country[]) {
         return foundPrefixes.reduce(
-            (first: Country, second: Country) =>
-                first.dialCode.length > second.dialCode.length
-                    ? first
-                    : second
-        );
+            (first: Country, second: Country) => this.checkPriorities(first, second, prioritizedCountries));
+    }
+
+    private static checkPriorities(first: Country, second: Country, prioritizedCountries: Country[]) {
+        const checkFirst = _.find(prioritizedCountries, (item: Country) => item.countryCode === first.countryCode);
+        const checkSecond = _.find(prioritizedCountries, (item: Country) => item.countryCode === second.countryCode);
+
+        if (first.dialCode.length === second.dialCode.length) {
+            return checkFirst || checkSecond || second;
+        }
+
+        return first.dialCode.length > second.dialCode.length
+            ? first
+            : second;
     }
 }
