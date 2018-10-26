@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Country} from "../interface/country.interface";
+import {Country} from '../..';
 
 @Injectable()
 export class CountryService {
@@ -12,6 +12,16 @@ export class CountryService {
         name: '',
         dialCode: '994',
         countryCode: 'az'
+      },
+      {
+        name: '',
+        dialCode: '54',
+        countryCode: 'ar'
+      },
+      {
+        name: '',
+        dialCode: '61',
+        countryCode: 'au'
       },
       {
         name: '',
@@ -167,6 +177,11 @@ export class CountryService {
         name: '',
         dialCode: '61',
         countryCode: 'cx'
+      },
+      {
+        name: '',
+        dialCode: '61',
+        countryCode: 'cc'
       },
       {
         name: '',
@@ -1154,8 +1169,6 @@ export class CountryService {
   getCountries(): Country[] {
     return this.countries;
   }
-
-
 }
 
 

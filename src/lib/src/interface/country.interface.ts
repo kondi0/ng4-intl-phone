@@ -1,5 +1,5 @@
 export interface Country {
-  name: string,
-  dialCode: string
-  countryCode: string,
+  name: string;
+  dialCode: string;
+  countryCode: string;
 }
