@@ -1147,6 +1147,16 @@ export class CountryService {
         name: '',
         dialCode: '358',
         countryCode: 'ax'
+      },
+      {
+        name: '',
+        dialCode: '374',
+        countryCode: 'am'
+      },
+      {
+        name: '',
+        dialCode: '61',
+        countryCode: 'au'
       }
     ];
   }
