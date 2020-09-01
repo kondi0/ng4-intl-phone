@@ -146,12 +146,10 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
 
     private updatePhoneInput(countryCode: string) {
         this.showDropdown = false;
-
+        this.selectedCountry = this.countries.find((country: Country) => country.countryCode === countryCode);
         let newInputValue: string = IntPhonePrefixComponent.startsWithPlus(this.phoneInput)
             ? `${this.phoneInput.split(PLUS)[1].substr(this.selectedCountry.dialCode.length, this.phoneInput.length)}`
             : this.phoneInput;
-
-        this.selectedCountry = this.countries.find((country: Country) => country.countryCode === countryCode);
         this.phoneInput = `${PLUS}${this.selectedCountry.dialCode} ${newInputValue.replace(/ /g, '')}`;
     }
 
