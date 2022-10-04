@@ -166,7 +166,7 @@ export class CountryService {
       {
         name: '',
         dialCode: '61',
-        countryCode: 'cx'
+        countryCode: 'au'
       },
       {
         name: '',

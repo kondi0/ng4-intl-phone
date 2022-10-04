@@ -4,7 +4,6 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {CountryCode} from '../../interface/country-code.interface';
 import {CountryService} from '../../service/country.service';
 import {LocaleService} from '../../service/locale.service';
-import * as _ from 'lodash';
 
 const COUNTER_CONTROL_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
@@ -20,7 +19,6 @@ const PLUS = '+';
     templateUrl: './int-phone-prefix.component.html',
     styleUrls: [
         './int-phone-prefix.component.scss',
-        '../../assets/flags/flags.min.css'
     ],
     host: {
         '(document:click)': 'hideDropdown($event)',
@@ -141,7 +139,7 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
     }
 
     private orderCountriesByName() {
-        this.countries = _.sortBy(this.countries, 'name');
+      this.countries = this.countries.sort((a, b) => (a.name > b.name) ? 1 : -1);
     }
 
     private updatePhoneInput(countryCode: string) {
@@ -157,7 +155,7 @@ export class IntPhonePrefixComponent implements OnInit, ControlValueAccessor {
 
     private findPrefix(prefix: string) {
         let foundPrefixes: Country[] = this.countries.filter((country: Country) => prefix.startsWith(country.dialCode));
-        this.selectedCountry = !_.isEmpty(foundPrefixes)
+        this.selectedCountry = foundPrefixes.length
             ? IntPhonePrefixComponent.reducePrefixes(foundPrefixes)
             : null;
     }
