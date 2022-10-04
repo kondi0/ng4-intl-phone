@@ -1,5 +1,8 @@
 # Angular international phone prefix input
 
+#Demo
+https://ng4-intl-phone.netlify.app/
+
 ## Description
 This is a simple library with international phone prefix with flags images.
 
@@ -24,15 +27,15 @@ To install this component to an external project, follow the procedure:
     ```
 
    ##Testing in localhost
-  - `npm install ./relative/path/to/lib` after `npm run build` to test locally in another app
+- `npm install ./relative/path/to/lib` after `npm run build` to test locally in another app
 
-   ## Usage
+## Usage
 
-   Use one of the following two options.
+Use one of the following two options.
 
-   ### 1. ngModel binding
+### 1. ngModel binding
 
-   In this option the ngModel binding is used.
+In this option the ngModel binding is used.
 
     ```html
     <h1>
@@ -46,11 +49,11 @@ To install this component to an external project, follow the procedure:
     </div>
     ```
 
-   ### 2. Reactive forms
+### 2. Reactive forms
 
-   In this option the value accessor of reactive forms is used.
+In this option the value accessor of reactive forms is used.
 
-   To use reactive forms define the application class as follows:
+To use reactive forms define the application class as follows:
 
     ```ts
     
@@ -69,7 +72,7 @@ To install this component to an external project, follow the procedure:
     }
     ```
 
-   Add the following snippet inside your template:
+Add the following snippet inside your template:
 
     ```html
     <form [formGroup]="myForm" novalidate>
@@ -78,32 +81,32 @@ To install this component to an external project, follow the procedure:
       <!-- other controls are here... -->
     </form>
     ```
-   ### @Input() locale
-   An ISO 639-1 language code can be provided to set available language:
-   es: Spanish,
-   en: English
+### @Input() locale
+An ISO 639-1 language code can be provided to set available language:
+es: Spanish,
+en: English
 
-   ### @Input() defaultCountry
+### @Input() defaultCountry
        An ISO 639-1 country code can be provided to set default country selected.
 
-   ### @Input() maxLength
+### @Input() maxLength
           maxLength (default: 15)
 
-   ### @Input() onlyNumbers
+### @Input() onlyNumbers
          Allows only numeric values (default: true)
 
-   ## License
-  * License: MIT
+## License
+* License: MIT
 
-   ## Author
-  * Author: kondi0
+## Author
+* Author: kondi0
 
-   ## Mail
-  * Mail: kondi.czerwinski@gmail.com
+## Mail
+* Mail: kondi.czerwinski@gmail.com
 
-   ## Keywords
-  * Phone
-  * Prefix
-  * International
-  * Angular2
-  * Angular4
+## Keywords
+* Phone
+* Prefix
+* International
+* Angular2
+* Angular4
