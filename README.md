@@ -1,110 +1,27 @@
-# Angular 4 international phone prefix input
+# Ng4IntlPhone
 
-## Description
-This is a simple library with international phone prefix with flags images.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
 
-## Installation
+## Development server
 
-To install this component to an external project, follow the procedure:
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-1. __npm install ng4-intl-phone --save__
+## Code scaffolding
 
-2. Add __InternationalPhoneModule__ import to your __@NgModule__ like example below
-    ```ts
-    import { NgModule } from '@angular/core';
-    import { BrowserModule } from '@angular/platform-browser';
-    import { MyTestApp } from './my-test-app';
-    import { InternationalPhoneModule } from 'ng4-intl-phone';
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-    @NgModule({
-        imports:      [ BrowserModule, InternationalPhoneModule ],
-        declarations: [ MyTestApp ],
-        bootstrap:    [ MyTestApp ]
-    })
-    export class MyTestAppModule {}
-    ```
-    
-    ##Testing in localhost
-    - `npm install ./relative/path/to/lib` after `npm run build` to test locally in another app
-    
-    ## Usage
-    
-    Use one of the following two options.
-    
-    ### 1. ngModel binding
-    
-    In this option the ngModel binding is used. 
-    
-    ```html
-    <h1>
-      {{title}}
-    </h1>
-    <div class="row">
-      <div class="col-md-2">
-        <int-phone-prefix [(ngModel)]="phoneNumber"></int-phone-prefix>
-    
-      </div>
-    </div>
-    ```
-    
-    ### 2. Reactive forms
-    
-    In this option the value accessor of reactive forms is used. 
-    
-    To use reactive forms define the application class as follows:
-    
-    ```ts
-    
-    export class MyTestApp implements OnInit {
-    
-        private myForm: FormGroup;
-    
-        constructor(private formBuilder: FormBuilder) { }
-    
-        ngOnInit() {
-            this.myForm = this.formBuilder.group({
-                myPhone: ['', Validators.required]
-                // other controls are here...
-            });
-        }
-    }
-    ```
-    
-    Add the following snippet inside your template:
-    
-    ```html
-    <form [formGroup]="myForm" novalidate>
-        <int-phone-prefix [locale]="'es'"
-                        formControlName="myPhone"></int-phone-prefix>
-      <!-- other controls are here... -->
-    </form>
-    ```
-    ### @Input() locale
-    An ISO 639-1 language code can be provided to set available language:
-     es: Spanish,
-     en: English
-     
-    ### @Input() defaultCountry
-       An ISO 639-1 country code can be provided to set default country selected.
-       
-   ### @Input() maxLength
-          maxLength (default: 15)
-          
-    ### @Input() onlyNumbers
-         Allows only numeric values (default: true)
-    
-    ## License
-    * License: MIT
-    
-    ## Author
-    * Author: kondi0
-    
-    ## Mail
-    * Mail: kondi.czerwinski@gmail.com
-    
-    ## Keywords
-    * Phone 
-    * Prefix
-    * International
-    * Angular2
-    * Angular4
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
