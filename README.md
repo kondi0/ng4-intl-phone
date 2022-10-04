@@ -1,6 +1,6 @@
 # Angular international phone prefix input
 
-#Demo
+# Demo
 https://ng4-intl-phone.netlify.app/
 
 ## Description
