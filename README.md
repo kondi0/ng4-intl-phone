@@ -6,6 +6,15 @@ https://ng4-intl-phone.netlify.app/
 ## Description
 This is a simple library with international phone prefix with flags images.
 
+### Donating
+
+You can also help me and the project out by contributing through a donation on PayPal.
+<p>
+    <a href="https://paypal.me/konradczerw?country.x=ES&locale.x=es_ES" target="_blank">
+        <img src="https://img.shields.io/badge/paypal-Konrad%20Czerwinski-blue.svg?logo=paypal&logoWidth=30&logoColor=00457C&style=popout-square" alt="PayPal"/>
+    </a>
+</p>
+
 ## Installation
 
 To install this component to an external project, follow the procedure:
