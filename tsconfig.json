@@ -9,7 +9,7 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "paths": {
-      "lib": [
+      "ng4-intl-phone": [
         "dist/lib/lib",
         "dist/lib"
       ]

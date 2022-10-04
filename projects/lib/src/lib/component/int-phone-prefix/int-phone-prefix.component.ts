@@ -14,7 +14,6 @@ const COUNTER_CONTROL_ACCESSOR = {
 const PLUS = '+';
 
 @Component({
-    moduleId: module.id,
     selector: 'int-phone-prefix',
     templateUrl: './int-phone-prefix.component.html',
     styleUrls: [
